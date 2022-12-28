@@ -45,6 +45,7 @@ public class MovieWindow {
 
     public void initialize() throws Exception {
         Label.setText(HelloController.getName);
+        //Вывод многострочного текста
         for(int i = 0; i < HelloController.getLink.length(); i++){
             if((i % 45) == 0){
                 Text.setText(Text.getText() + "\n");
