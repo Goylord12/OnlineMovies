@@ -56,6 +56,8 @@ public class HelloController implements Initializable {
     @FXML
     private TextField TextField;
 
+    
+    // Открывает окно выделенного фильма 
     @FXML
     void onSearch(ActionEvent event) {
         ObservableList<User> selectedRows, allBooks;
@@ -64,9 +66,11 @@ public class HelloController implements Initializable {
         selectedRows = TableView.getSelectionModel().getSelectedItems();
 
         for (User user : selectedRows) {
+            //Сохранение названия и описания выделенного фильма
             getName = user.getName();
             getLink = user.getLink();
             try{
+                //Открытие окна
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("movie-window.fxml"));
                 loader.load();
@@ -139,12 +143,8 @@ public class HelloController implements Initializable {
         TableView.setItems(sortedData);
     }
 
-    // инициализируем форму данными
-
-
-    // подготавливаем данные для таблицы
-    // вы можете получать их с базы данных
     private void initData() {
+        //Заполняем таблицу данными
         usersData.add(new User("Call Me by Your Name", "драма, мелодрама", "Италия, 1983 год. 17-летний Элио проводит лето на вилле у родителей - американского профессора и переводчицы-итальянки. Начитанный и любознательный юноша разбавляет обычные летние занятия вроде купания в море и ленивого флирта с подругой Марцией чтением и транскрибированием классической музыки. В один прекрасный день безмятежность летнего отдыха нарушает приезд ассистента отца Элио – молодого американского учёного Оливера."));
         usersData.add(new User("Brokeback Mountain", "вестерн, мелодрама, драма", "На фоне живописных просторов штата Вайоминг разворачивается история сложных взаимоотношений двух молодых людей – помощника владельца ранчо и ковбоя родео. Герои случайно встречаются и скоро понимают, что не могут жить друг без друга. Однако судьба упрямо испытывает их на прочность."));
         usersData.add(new User("The Green Elephant", "ужасы, триллер", "Два младших офицера, сидя в одной камере на гауптвахте, вынуждены решать острые социальные и психологические вопросы в небольшом пространстве."));
